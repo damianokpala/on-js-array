@@ -204,14 +204,25 @@ Use the `sort()` method with a custom comparator to sort the names in descending
 
 const names = ["John", "Adam", "Eva", "Alex", "Megan"];
 
-let descNames = names.sort(descending)
+let descNames = names.sort((a, b) => b.length - a.length)
+console.log(descNames);
 
 /*
 9. **Array Reverse:**
 Given the following array of numbers: `[1, 2, 3, 4, 5]`, use the `reverse()` method to reverse the order of elements in the array.
 */
 
+const numm = [1, 2, 3, 4, 5]
+
+const nummy = numm.reverse()
+
+console.log(nummy);
+
 /*
 10. **Array From:**
 Create a new array named `countArray` with the length of 5, containing numbers from 0 to 4 (inclusive) using the `Array.from()` method.
 */
+
+let countArray = Array.from({length:5}, (_, index) => index)
+
+console.log(countArray);
