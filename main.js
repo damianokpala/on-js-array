@@ -226,3 +226,164 @@ Create a new array named `countArray` with the length of 5, containing numbers f
 let countArray = Array.from({length:5}, (_, index) => index)
 
 console.log(countArray);
+
+
+/*
+
+**JavaScript Array Test - Stage 3**
+
+1. **Array Filter and Reduce Combination:**
+Given an array of numbers `[1, 2, 3, 4, 5, 6, 7, 8, 9, 10]`, use a combination of the `filter()` and `reduce()` methods to calculate the sum of all even numbers in the array.
+
+*/
+
+const stageThreeNumArr = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
+let filRed = stageThreeNumArr.filter(x => x % 2 == 0).reduce((x,y) => x + y)
+console.log(filRed);
+
+/*
+
+2. **Array Some and Every Combination:**
+Given an array of strings `["apple", "banana", "cherry", "date", "elderberry"]`, use a combination of the `some()` and `every()` methods to check if some fruits have more than five characters and if every fruit has at least two characters.
+
+*/
+
+const stageThreeFruits = ["apple", "banana", "cherry", "date", "elderberry"]
+let check = stageThreeFruits.some(x => x.length > 5) && stageThreeFruits.every(x => x.length >= 2)
+console.log(check);
+/*
+
+3. **Array Flat:**
+Given a nested array `[[1, 2], [3, [4, 5]], 6, [7, 8, [9, 10]]]`, use the `flat()` method to flatten the array to a single-level array.
+
+*/
+
+const stageThreeNestedArr = [[1, 2], [3, [4, 5]], 6, [7, 8, [9, 10]]]
+
+let stageThreeArr = stageThreeNestedArr.flat().flat()
+
+console.log(stageThreeArr);
+
+/*
+
+4. **Array Reduce Right:**
+Given an array of strings `["one", "two", "three", "four"]`, use the `reduceRight()` method to concatenate the strings from right to left, separated by dashes ("-"). The result should be "four-three-two-one".
+*/
+
+const stageThreeArrString = ["one", "two", "three", "four"]
+
+let concatRightToLeft = stageThreeArrString.reduceRight((x,y) => `${x}-${y}`)
+console.log(concatRightToLeft);
+/*
+
+5. **Array Join:**
+Given an array of words `["Hello", "world", "how", "are", "you?"]`, use the `join()` method to join the words into a single string separated by spaces. The result should be "Hello world how are you?".
+
+*/
+
+const stageThreeArrWords = ["Hello", "world", "how", "are", "you?"]
+let arrWordsJoin = stageThreeArrWords.join(" ")
+console.log(arrWordsJoin);
+/*
+
+6. **Array Fill:**
+Create a new array named `filledArray` with a length of 5, filled with the value "X" using the `fill()` method.
+
+*/
+
+let filledArray = Array(5).fill("X")
+console.log(filledArray);
+
+/*
+
+7. **Array IndexOf and LastIndexOf:**
+Given an array of numbers `[2, 4, 6, 8, 10, 4, 12, 14]`, use the `indexOf()` method to find the index of the first occurrence of the number 4. Then, use the `lastIndexOf()` method to find the index of the last occurrence of the number 4.
+
+*/
+
+const stageThreeArrNum = [2, 4, 6, 8, 10, 4, 12, 14]
+
+let firstNum = stageThreeArrNum.indexOf(4)
+let lastNum = stageThreeArrNum.lastIndexOf(4)
+
+
+console.log(firstNum, lastNum);
+/*
+8. **Array Intersection:**
+Given two arrays `arr1 = [1, 2, 3, 4]` and `arr2 = [3, 4, 5, 6]`, write a function `getIntersection(arr1, arr2)` that returns a new array containing the common elements between `arr1` and `arr2`.
+*/
+
+const stageThreeArr1 = [1, 2, 3, 4]
+const stageThreeArr2 = [3, 4, 5, 6]
+
+const getIntersection = (arrii, arri) => {
+  let commonArr = []
+  arrii.forEach(x => {
+    if (arri.includes(x)) {
+      commonArr.push(x)
+    }
+  })
+  
+  return commonArr;
+}
+
+console.log(getIntersection(stageThreeArr1, stageThreeArr2))
+
+/*
+
+9. **Array Unique:**
+Given an array of numbers `[1, 2, 3, 2, 4, 5, 1, 3]`, write a function `getUniqueElements(arr)` that returns a new array containing only the unique elements in the original array.
+
+*/
+
+const unUniqueArr = [1, 2, 3, 2, 4, 5, 1, 3]
+
+const getUniqueElements = function(arr) {
+  let uniqueArr = []
+  
+  for (let x = 0; x <= arr.length - 1; x++) {
+    if (uniqueArr.includes(arr[x])) {
+      continue
+    } else {
+      uniqueArr.push(arr[x])
+    };
+  };
+  
+  return uniqueArr
+}
+
+console.log(getUniqueElements(unUniqueArr));
+/*
+
+10. **Array Shuffle:**
+Write a function `shuffleArray(arr)` that takes an array as input and returns a new array with the elements randomly shuffled.
+
+*/
+
+function shuffleArray(arr) {
+  let shallow = [...arr]
+  for (let i =  arr.length - 1; i > 0; i--) {
+    const j = Math.floor(Math.random() * (i + 1));
+    [shallow[i], shallow[j]] = [shallow[j], shallow[i]];
+  }
+  return shallow;
+}
+
+const login = shuffleArray(unUniqueArr)
+console.log(login);
+/*
+
+
+function shuffleArray(arr) {
+  let shallow = [...arr];
+  for (let i = arr.length - 1; i > 0; i--) {
+    const j = Math.floor(Math.random() * (i + 1));
+    [shallow[i], shallow[j]] = [shallow[j], shallow[i]];
+  }
+  return shallow;
+}
+
+// const unUniqueArr = [1, 2, 3, 4, 5];
+const shuffledArr = shuffleArray(unUniqueArr);
+console.log(shuffledArr);
+*/
